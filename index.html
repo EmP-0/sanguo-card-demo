@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>三国 · 战阵 — 卡牌对战 Demo</title>
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="bgGlyph">戰</div>
+
+<div id="app">
+  <!-- ================= 主菜单 ================= -->
+  <section id="menu" class="screen">
+    <div class="menu-inner">
+      <header class="menu-title">
+        <div class="title-seal">三國</div>
+        <div class="title-text">
+          <h1>战 阵</h1>
+          <p class="tagline">三十将 · 三列阵 · 一城定胜负</p>
+          <p class="sub">卡牌对战 Demo · 人机对战 · 规则验证版</p>
+        </div>
+      </header>
+
+      <div class="deck-select" id="deckSelect"></div>
+
+      <section class="deputy-section">
+        <div class="section-title">
+          <span>选择副将</span>
+          <em id="deputyHint">副将登场时，可选择 +1 攻击力 或 +1 生命值</em>
+        </div>
+        <div id="deputyList" class="deputy-list"></div>
+      </section>
+
+      <div class="menu-actions">
+        <button class="btn btn-primary btn-lg" id="startBtn">开 始 对 局</button>
+        <button class="btn btn-lg" id="rulesBtn">规 则 说 明</button>
+      </div>
+      <p class="menu-note">
+        操作：点击手牌 → 点击战场空格布阵；点击内政区可将手牌派遣为内政单位（每回合 1 次）。<br>
+        战斗阶段点击我方单位选择进攻者，再点击「发动进攻」。
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= 对局 ================= -->
+  <section id="game" class="screen hidden">
+    <header id="topbar">
+      <div class="brand">三国 · <b>战阵</b></div>
+      <div id="turnBadge" class="turn-badge"></div>
+      <div class="topbar-right">
+        <button class="btn btn-sm" id="speedBtn" title="切换电脑行动动画速度">动画 1x</button>
+        <button class="btn btn-sm" id="gameRulesBtn">规则</button>
+        <button class="btn btn-sm" id="quitBtn">返回</button>
+      </div>
+    </header>
+
+    <div id="tableWrap">
+      <div id="boardArea">
+        <section id="aiZone" class="zone zone-ai"></section>
+        <div id="centerLine"><span class="diamond">◆</span><span class="line"></span>战 阵<span class="line"></span><span class="diamond">◆</span></div>
+        <section id="humanZone" class="zone zone-human"></section>
+      </div>
+      <aside id="logPanel">
+        <div class="log-head"><span>战 报</span><em id="logCount"></em></div>
+        <div id="logList" class="log-list"></div>
+      </aside>
+    </div>
+
+    <footer id="bottomBar">
+      <div id="handWrap">
+        <div id="handArea"></div>
+        <div id="handHint" class="hand-hint"></div>
+      </div>
+      <div id="controls"></div>
+    </footer>
+  </section>
+</div>
+
+<div id="modalRoot"></div>
+<div id="toastRoot"></div>
+<div id="fxLayer"></div>
+<div id="tooltip"></div>
+
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
